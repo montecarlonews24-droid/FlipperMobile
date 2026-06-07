@@ -13,10 +13,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Kill bad agent
+        run: |
+          find /home/runner -name "gradle-instrumentation-agent*.jar" -delete 2>/dev/null || true
+          echo "Done"
       - name: Build APK
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
           JAVA_TOOL_OPTIONS: ""
+          _JAVA_OPTIONS: ""
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
