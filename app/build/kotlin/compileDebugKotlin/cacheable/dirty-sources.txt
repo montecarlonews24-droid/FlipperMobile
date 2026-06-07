@@ -1,0 +1,4 @@
+/workspaces/FlipperMobile/app/src/main/java/com/flippermobile/bt/BluetoothFragment.kt
+/workspaces/FlipperMobile/app/src/main/java/com/flippermobile/wifi/WifiFragment.kt
+/workspaces/FlipperMobile/app/src/main/java/com/flippermobile/nfc/NfcFragment.kt
+/workspaces/FlipperMobile/app/src/main/java/com/flippermobile/MainActivity.kt

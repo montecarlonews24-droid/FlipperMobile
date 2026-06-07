@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg" android:padding="12dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="للاستخدام البحثي الأخلاقي فقط" android:textColor="@color/red"
+            android:textSize="11sp" android:gravity="center" android:padding="10dp"
+            android:background="@drawable/bg_warning" android:layout_marginBottom="10dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="10dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:gravity="center"
+                android:padding="12dp" android:background="@drawable/bg_card" android:layout_marginEnd="6dp">
+                <TextView android:id="@+id/countRead" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0"
+                    android:textColor="@color/orange" android:textSize="24sp" android:textStyle="bold"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="مقروء" android:textColor="@color/dim" android:textSize="10sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:gravity="center"
+                android:padding="12dp" android:background="@drawable/bg_card" android:layout_marginEnd="6dp">
+                <TextView android:id="@+id/countSaved" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="0"
+                    android:textColor="@color/green" android:textSize="24sp" android:textStyle="bold"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="محفوظ" android:textColor="@color/dim" android:textSize="10sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:gravity="center"
+                android:padding="12dp" android:background="@drawable/bg_card">
+                <TextView android:id="@+id/countType" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="--"
+                    android:textColor="@color/cyan" android:textSize="16sp" android:textStyle="bold"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="النوع" android:textColor="@color/dim" android:textSize="10sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <Button android:id="@+id/btnReadNfc" android:layout_width="match_parent"
+            android:layout_height="56dp" android:text="قرّب كارت NFC للقراءة"
+            android:textColor="@color/orange" android:backgroundTint="@color/panel"
+            android:layout_marginBottom="10dp"/>
+        <LinearLayout android:id="@+id/cardResult" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:background="@drawable/bg_card_orange" android:padding="16dp"
+            android:layout_marginBottom="10dp" android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="UID" android:textColor="@color/dim" android:textSize="10sp" android:layout_weight="1"/>
+                <TextView android:id="@+id/tvUid" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="--"
+                    android:textColor="@color/orange" android:textSize="14sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="النوع" android:textColor="@color/dim" android:textSize="10sp" android:layout_weight="1"/>
+                <TextView android:id="@+id/tvType" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="--"
+                    android:textColor="@color/orange" android:textSize="13sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="البروتوكول" android:textColor="@color/dim" android:textSize="10sp" android:layout_weight="1"/>
+                <TextView android:id="@+id/tvProto" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="--"
+                    android:textColor="@color/orange" android:textSize="13sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="التقنية" android:textColor="@color/dim" android:textSize="10sp" android:layout_weight="1"/>
+                <TextView android:id="@+id/tvTech" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="--"
+                    android:textColor="@color/cyan" android:textSize="13sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="البيانات" android:textColor="@color/dim" android:textSize="10sp" android:layout_weight="1"/>
+                <TextView android:id="@+id/tvRaw" android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="2"
+                    android:text="--" android:textColor="@color/green" android:textSize="10sp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/btnSave" android:layout_width="0dp" android:layout_height="40dp"
+                    android:layout_weight="1" android:text="احفظ"
+                    android:textColor="@color/green" android:backgroundTint="@color/border"
+                    android:layout_marginEnd="8dp"/>
+                <Button android:id="@+id/btnCopy" android:layout_width="0dp" android:layout_height="40dp"
+                    android:layout_weight="1" android:text="نسخ UID"
+                    android:textColor="@color/dim" android:backgroundTint="@color/border"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:id="@+id/tvLog" android:layout_width="match_parent"
+            android:layout_height="200dp" android:background="@color/panel"
+            android:padding="12dp" android:text="NFC v1.0"
+            android:textColor="@color/green" android:textSize="11sp" android:fontFamily="monospace"
+            android:gravity="bottom" android:scrollbars="vertical"/>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvSavedCards"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" android:layout_marginTop="12dp"/>
+    </LinearLayout>
+</ScrollView>

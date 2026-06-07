@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:gravity="center" android:padding="16dp"
+        android:background="@color/panel">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="FLIPPER MOBILE" android:textColor="@color/orange"
+            android:textSize="22sp" android:textStyle="bold"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="SECURITY RESEARCH TOOL v1.0" android:textColor="@color/dim"
+            android:textSize="10sp" android:layout_marginTop="2dp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="8dp" android:background="@color/panel">
+        <Button android:id="@+id/tabNfc" android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1" android:text="NFC" android:textColor="@color/orange"
+            android:backgroundTint="@color/border" android:layout_marginEnd="4dp"/>
+        <Button android:id="@+id/tabWifi" android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1" android:text="WIFI" android:textColor="@color/dim"
+            android:backgroundTint="@color/panel" android:layout_marginEnd="4dp"/>
+        <Button android:id="@+id/tabBt" android:layout_width="0dp" android:layout_height="48dp"
+            android:layout_weight="1" android:text="BT" android:textColor="@color/dim"
+            android:backgroundTint="@color/panel"/>
+    </LinearLayout>
+    <FrameLayout android:id="@+id/contentFrame" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1"/>
+</LinearLayout>
