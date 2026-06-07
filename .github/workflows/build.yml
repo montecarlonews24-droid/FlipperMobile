@@ -12,17 +12,10 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'temurin'
-      - name: Block agent
-        run: |
-          mkdir -p /home/runner/work/FlipperMobile/lib/agents
-          echo "BLOCKED" > /home/runner/work/FlipperMobile/lib/agents/gradle-instrumentation-agent-8.2.jar
-          chmod 444 /home/runner/work/FlipperMobile/lib/agents/gradle-instrumentation-agent-8.2.jar
+          distribution: 'zulu'
       - name: Build APK
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
-          JAVA_TOOL_OPTIONS: ""
-          _JAVA_OPTIONS: ""
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
