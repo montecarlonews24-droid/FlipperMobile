@@ -13,10 +13,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Kill bad agent
+      - name: Block agent
         run: |
-          find /home/runner -name "gradle-instrumentation-agent*.jar" -delete 2>/dev/null || true
-          echo "Done"
+          mkdir -p /home/runner/work/FlipperMobile/lib/agents
+          echo "BLOCKED" > /home/runner/work/FlipperMobile/lib/agents/gradle-instrumentation-agent-8.2.jar
+          chmod 444 /home/runner/work/FlipperMobile/lib/agents/gradle-instrumentation-agent-8.2.jar
       - name: Build APK
         env:
           ANDROID_HOME: /usr/local/lib/android/sdk
