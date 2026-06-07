@@ -12,6 +12,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Remove bad JAR
+        run: rm -rf /home/runner/work/FlipperMobile/lib
       - name: Build APK
         run: |
           chmod +x gradlew
