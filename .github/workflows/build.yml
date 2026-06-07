@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      JAVA_TOOL_OPTIONS: "-Djdk.attach.allowAttachSelf=true"
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
@@ -15,12 +17,10 @@ jobs:
           distribution: 'temurin'
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
-      - name: Remove bad agent
-        run: rm -rf /home/runner/work/FlipperMobile/lib
       - name: Build APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleDebug --no-daemon -Dorg.gradle.jvmargs="-Xmx2g"
       - uses: actions/upload-artifact@v4
         with:
           name: FlipperMobile-APK
