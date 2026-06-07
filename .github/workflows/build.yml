@@ -13,9 +13,13 @@ jobs:
         with:
           java-version: '17'
           distribution: 'zulu'
+      - name: Kill agent
+        run: |
+          find /Users/runner -name "gradle-instrumentation-agent*.jar" -delete 2>/dev/null || true
+          find /home/runner -name "gradle-instrumentation-agent*.jar" -delete 2>/dev/null || true
       - name: Build APK
         env:
-          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+          ANDROID_HOME: $ANDROID_HOME
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
