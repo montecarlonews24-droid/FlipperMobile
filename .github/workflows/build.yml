@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      JAVA_TOOL_OPTIONS: ""
     steps:
       - uses: actions/checkout@v4
 
@@ -18,12 +16,17 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - uses: android-actions/setup-android@v3
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: '11076708'
 
       - name: Build APK
+        env:
+          JAVA_TOOL_OPTIONS: -Djdk.attach.allowAttachSelf=true
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --no-daemon
 
       - uses: actions/upload-artifact@v4
         with:
