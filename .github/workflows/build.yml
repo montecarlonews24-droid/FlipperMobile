@@ -6,12 +6,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: mingc/android-build-box:latest
     steps:
       - uses: actions/checkout@v4
       - name: Remove bad agent
-        run: rm -rf /__w/FlipperMobile/lib
+        run: find / -name "gradle-instrumentation-agent*.jar" -delete 2>/dev/null || true
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
       - name: Build APK
         run: |
           chmod +x gradlew
