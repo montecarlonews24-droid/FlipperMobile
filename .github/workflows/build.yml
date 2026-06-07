@@ -13,10 +13,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Remove bad agent
-        run: rm -rf /home/runner/work/FlipperMobile/lib
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+      - name: Remove bad agent
+        run: rm -rf /home/runner/work/FlipperMobile/lib
       - name: Build APK
         run: |
           chmod +x gradlew
