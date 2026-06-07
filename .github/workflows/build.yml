@@ -10,6 +10,8 @@ jobs:
       image: mingc/android-build-box:latest
     steps:
       - uses: actions/checkout@v4
+      - name: Remove bad agent
+        run: rm -rf /__w/FlipperMobile/lib
       - name: Build APK
         run: |
           chmod +x gradlew
